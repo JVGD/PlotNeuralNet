@@ -11,4 +11,8 @@ RUN apt-get update && \
 
 WORKDIR /workdir
 
-ENTRYPOINT [ "/bin/bash" ]
+COPY . /workdir
+
+RUN chmod +x /workdir/tikzmake.sh
+
+ENTRYPOINT [ "/bin/bash", "/workdir/tikzmake.sh" ]
