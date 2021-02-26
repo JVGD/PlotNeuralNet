@@ -19,7 +19,7 @@ dev: build
 	docker exec -it plotneuralnet bash || true
 
 test:
-	if [ -z "$$FILE" ];	then echo "This should be called as:"; echo "$$ make FILE=/path/to/file"; exit; fi
+	if [ -z "$$FILE" ];	then echo "This should be called as:"; echo "$$ make FILE=/path/to/file"; fail; fi
 	docker run --rm -v $$(pwd):/workdir plotneuralnet:latest ${FILE}
 
 .SILENT:
