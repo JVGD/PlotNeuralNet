@@ -5,6 +5,7 @@
 __pycache__
 books
 project
+/.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
