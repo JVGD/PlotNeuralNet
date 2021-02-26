@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-default: test
+default: run
 
 build:
 	docker build \
@@ -18,8 +18,12 @@ dev: build
 		plotneuralnet:latest || true
 	docker exec -it plotneuralnet bash || true
 
-test:
-	if [ -z "$$FILE" ];	then echo "This should be called as:"; echo "$$ make FILE=/path/to/file"; fail; fi
-	docker run --rm -v $$(pwd):/workdir plotneuralnet:latest ${FILE}
+run:
+	if [ -z "$$FILE" ];	then \
+		echo "This should be called as:"; \
+		echo "$$ make FILE=/path/to/file"; \
+	else \
+		docker run --rm -v $$(pwd):/workdir plotneuralnet:latest ${FILE}; \
+	fi
 
 .SILENT:
