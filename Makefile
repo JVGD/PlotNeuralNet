@@ -14,4 +14,4 @@ run: build
 		-v $$(pwd):/workdir \
 		--name plotneuralnet \
 		plotneuralnet:latest || true
-	docker exec -it dev_docker bash || true
+	docker exec -it plotneuralnet bash || true
